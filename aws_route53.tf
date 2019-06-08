@@ -5,7 +5,7 @@ resource "aws_route53_record" "gitlab-main" {
 
   alias = {
     name                   = "${var.aws_route53_record_lb_name}"
-    zone_id                = "${var.aws_route53_record_lb_zone_id}"
+    zone_id                = "${var.aws_route53_zone}"
     evaluate_target_health = false
   }
 }
@@ -17,7 +17,7 @@ resource "aws_route53_record" "gitlab-registry" {
 
   alias = {
     name                   = "${var.aws_route53_record_lb_name}"
-    zone_id                = "${var.aws_route53_record_lb_zone_id}"
+    zone_id                = "${var.aws_route53_zone}"
     evaluate_target_health = false
   }
 }
