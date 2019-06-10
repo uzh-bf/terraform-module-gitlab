@@ -1,5 +1,5 @@
 resource "aws_iam_user" "gitlab_user" {
-  name = "${var.prefix}gitlab"
+  name = "${var.prefix}${var.gitlab_username}"
 }
 
 resource "aws_iam_access_key" "gitlab_user_credentials" {
