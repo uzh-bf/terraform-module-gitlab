@@ -17,12 +17,12 @@ resource "aws_iam_policy" "gitlab_policy" {
     {
       "Action": "s3:*",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${var.prefix}gitlab-*"
+      "Resource": "arn:aws:s3:::${var.bucket_prefix}gitlab-*"
     },
     {
       "Action": "s3:*",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${var.prefix}gitlab-*/*"
+      "Resource": "arn:aws:s3:::${var.bucket_prefix}gitlab-*/*"
     }
   ]
 }
