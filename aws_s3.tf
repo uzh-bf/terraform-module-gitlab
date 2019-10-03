@@ -31,6 +31,18 @@ resource "aws_s3_bucket" "gitlab-pseudonymizer-storage" {
 resource "aws_s3_bucket" "gitlab-backup-storage" {
   bucket = "${var.bucket_prefix}gitlab-backup-storage"
   acl    = "private"
+
+  lifecycle_rule {
+    abort_incomplete_multipart_upload_days = 0
+    enabled                                = true
+    id                                     = "Cleanup"
+    tags                                   = {}
+
+    expiration {
+      days                         = 30
+      expired_object_delete_marker = false
+    }
+  }
 }
 
 resource "aws_s3_bucket" "gitlab-tmp-storage" {
